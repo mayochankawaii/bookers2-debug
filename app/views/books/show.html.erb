@@ -47,11 +47,12 @@
       </table>
       <div>
         <% @book.book_comments.each do |book_comment| %>
-          <p><%= image_tag book_comment.user.get_profile_image, size: '100x100' %>
-
+        <p>
+          <%= image_tag book_comment.user.get_profile_image, size: '100x100' %>
           <%= book_comment.comment %>
           <% if book_comment.user == current_user %>
-          <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, class: "btn btn-sm btn-danger"%></p>
+          <%= link_to "Destroy", book_book_comment_path(book_comment.book, book_comment), method: :delete, class: "btn btn-sm btn-danger"%>
+        </p>
           <%= link_to(@book.user) do %><%= book_comment.user.name %><% end %>
         <% end %>
         <% end %>
